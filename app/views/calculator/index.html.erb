@@ -1,1 +1,27 @@
-<p>Calculator</p>
+<div class="p-5">
+  <p class="text-2xl">Calories Calculator</p>
+</div>
+<div class="p-5">
+  <%= form_with url: calculator_url, method: :post, scope: :parameters, class: "space-y-5" do |f| %>
+    <div>
+      <%= f.label :gender, "Gender", class: "block" %>
+      <%= f.radio_button :gender, :male, checked: (@gender == :male) %>
+      <%= f.label :gender_male, "Male" %>
+      <%= f.radio_button :gender, :female, checked: (@gender == :female) %>
+      <%= f.label :gender_female, "Female" %>
+    </div>
+    <div>
+      <%= f.label :weight_in_kilos, "Weight (kg)", class: "block" %>
+      <%= f.number_field :weight_in_kilos, in: 1.0..20.0, step: 0.5, value: @weight_in_kilos %>
+    </div>
+    <div>
+      <%= f.label :height_in_cm, "Height (cm)", class: "block" %>
+      <%= f.number_field :height_in_cm, in: 80..300, step: 1, value: @height_in_cm %>
+    </div>
+    <div>
+      <%= f.label :age_in_years, "Age (years)", class: "block" %>
+      <%= f.number_field :age_in_years, in: 10..150, step: 1, value: @age_in_years %>
+    </div>
+    <%= f.submit "submit" %>
+  <% end %>
+</div>
