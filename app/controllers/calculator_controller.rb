@@ -4,6 +4,7 @@ class CalculatorController < ApplicationController
     set_weight_in_kilos
     set_height_in_cm
     set_age_in_years
+    set_activity_level
   end
 
   def calculate
@@ -11,6 +12,7 @@ class CalculatorController < ApplicationController
     save_weight_in_kilos
     save_height_in_cm
     save_age_in_years
+    save_activity_level
 
     redirect_to action: :index
   end
@@ -18,7 +20,7 @@ class CalculatorController < ApplicationController
   private
 
     def form_params
-      params.require(:parameters).permit(:gender, :weight_in_kilos, :height_in_cm, :age_in_years)
+      params.require(:parameters).permit(:gender, :weight_in_kilos, :height_in_cm, :age_in_years, :activity_level)
     end
 
     def set_gender
@@ -79,6 +81,24 @@ class CalculatorController < ApplicationController
       end
 
       cookies.delete :age_in_years
+    end
+
+    def set_activity_level
+      if cookies[:activity_level].present?
+        @activity_level = cookies[:activity_level].to_sym
+        return
+      end
+
+      @activity_level = :sedentary
+    end
+
+    def save_activity_level
+      if form_params[:activity_level].present?
+        cookies[:activity_level] = form_params[:activity_level]
+        return
+      end
+
+      cookies.delete :activity_level
     end
 
 end

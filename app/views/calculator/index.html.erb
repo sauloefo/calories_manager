@@ -22,6 +22,10 @@
       <%= f.label :age_in_years, "Age (years)", class: "block" %>
       <%= f.number_field :age_in_years, in: 10..150, step: 1, value: @age_in_years %>
     </div>
+    <div>
+      <%= f.label :activity_level, "Activity Level", class: "block" %>
+      <%= f.select :activity_level, activity_levels, selected: @activity_level %>
+    </div>
     <%= f.submit "submit" %>
   <% end %>
 </div>
