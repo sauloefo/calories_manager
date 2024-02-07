@@ -51,6 +51,24 @@ module CalculatorHelper
     %i[sedentary slightly_active moderately_active active very_active].to_set
   end
 
+  def has_bmr?
+    @gender.present? && @weight_in_kilos.present? && @height_in_cm.present? && @age_in_years.present?
+  end
+
+  def bmr
+    return male_bmr weight_in_kilos: @weight_in_kilos, height_in_centimeters: @height_in_cm, age_in_years: @age_in_years if @gender == :male
+
+    female_bmr weight_in_kilos: @weight_in_kilos, height_in_centimeters: @height_in_cm, age_in_years: @age_in_years
+  end
+
+  def has_tdee?
+    has_bmr? && @activity_level.present?
+  end
+
+  def tdee
+    activity_level_coeficients[@activity_level] * bmr
+  end
+
   private
 
     def activity_level_coeficients()

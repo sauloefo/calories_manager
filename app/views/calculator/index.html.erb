@@ -29,3 +29,18 @@
     <%= f.submit "submit" %>
   <% end %>
 </div>
+
+<% if has_bmr? %>
+
+  <div class="p-5 space-y-5">
+    <div>
+      <p class="text-xl">Basal Metabolic Rate (BMR): <%=bmr.to_i%> calories</p>
+    </div>
+    <% if has_tdee? %>
+      <div>
+        <p class="text-xl">Total Daily Energy Expenditure (TDEE): <%=tdee.to_i%> calories</p>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
