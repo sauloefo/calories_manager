@@ -26,7 +26,7 @@
       <%= f.label :activity_level, "Activity Level", class: "block" %>
       <%= f.select :activity_level, activity_levels, selected: @activity_level %>
     </div>
-    <%= f.submit "submit" %>
+    <%= f.submit "Submit", class: "border rounded p-3 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200" %>
   <% end %>
 </div>
 
