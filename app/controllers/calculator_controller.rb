@@ -54,7 +54,7 @@ class CalculatorController < ApplicationController
     def set_height_in_cm
       return if !cookies[:height_in_cm].present?
 
-      @height_in_cm = cookies[:height_in_cm].to_d
+      @height_in_cm = cookies[:height_in_cm].to_i
     end
 
     def save_height_in_cm
