@@ -28,6 +28,7 @@
 #       enabled: "ON"
 
 en:
+  language_name: "English"
   application_title: "Calories Calculator"
   gender_input_label: "Gender"
   gender_option_male: "Male"
@@ -35,7 +36,12 @@ en:
   weight_input_label: "Weight (kg)"
   height_input_label: "Height (cm)"
   age_input_label: "Age (years)"
-  activity_level_input_label: "Activity Level"
+  activity_level_input_label: "Physical Activity Level"
+  activity_level_sedentary: "Sedentary"
+  activity_level_slightly_active: "Slightly Active"
+  activity_level_moderately_active: "Moderately Active"
+  activity_level_active: "Active"
+  activity_level_very_active: "Very Active"
   submit_form_button_label: "Submit"
   reset_form_button_label: "Reset"
   bmr_result_label: "Basal Metabolic Rate (BMR)"

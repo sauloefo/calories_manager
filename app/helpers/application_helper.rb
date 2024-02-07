@@ -6,4 +6,10 @@ module ApplicationHelper
 
     raise "Missing GA_MEASUREMENT_ID environment variable"
   end
+
+  def available_locales
+    return I18n.available_locales.collect do |language_code|
+      [I18n.translate(:language_name, locale: language_code), language_code]
+    end
+  end
 end

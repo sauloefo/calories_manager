@@ -1,6 +1,6 @@
 <div data-controller="calculator" data-calculator-reset-url-value="<%= reset_calculator_url %>">
   <div class="p-5">
-    <%= select_tag :locale, options_for_select(I18n.available_locales, I18n.locale), "data-action": "change->calculator#setLanguage" %>
+    <%= select_tag :locale, options_for_select(available_locales, I18n.locale), "data-action": "change->calculator#setLanguage" %>
   </div>
   <div class="p-5">
     <p class="text-2xl"><%= t :application_title %></p>

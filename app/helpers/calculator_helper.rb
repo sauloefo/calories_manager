@@ -49,6 +49,14 @@ module CalculatorHelper
 
   def activity_levels
     %i[sedentary slightly_active moderately_active active very_active].to_set
+
+    [
+      [t(:activity_level_sedentary), :sedentary],
+      [t(:activity_level_slightly_active), :slightly_active],
+      [t(:activity_level_moderately_active), :moderately_active],
+      [t(:activity_level_active), :active],
+      [t(:activity_level_very_active), :very_active]
+    ]
   end
 
   def has_bmr?
