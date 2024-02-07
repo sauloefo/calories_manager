@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if Rails.env.production? %>
+
+      <!-- Google tag (gtag.js) -->
+      <script async src=<%="https://www.googletagmanager.com/gtag/js?id=#{ga_measurement_id}"%>></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', <%="#{ga_measurement_id}"%>);
+      </script>
+
+    <% end %>
     <title>CaloriesManager</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
