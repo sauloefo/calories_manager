@@ -1,55 +1,60 @@
-<div class="p-5">
-  <p class="text-2xl">Calories Calculator</p>
-</div>
-<div class="p-5" data-controller="calculator" data-calculator-reset-url-value="<%= reset_calculator_url %>">
-  <%= form_with url: calculator_url,
-      method: :post,
-      scope: :parameters,
-      class: "space-y-5",
-      data: {
-        "calculator-target": "form"
-      } do |f| %>
-    <div>
-      <%= f.label :gender, "Gender", class: "block" %>
-      <%= f.radio_button :gender, :male, checked: (@gender == :male) %>
-      <%= f.label :gender_male, "Male" %>
-      <%= f.radio_button :gender, :female, checked: (@gender == :female) %>
-      <%= f.label :gender_female, "Female" %>
-    </div>
-    <div>
-      <%= f.label :weight_in_kilos, "Weight (kg)", class: "block" %>
-      <%= f.number_field :weight_in_kilos, in: 1.0..700.0, step: 0.5, value: @weight_in_kilos %>
-    </div>
-    <div>
-      <%= f.label :height_in_cm, "Height (cm)", class: "block" %>
-      <%= f.number_field :height_in_cm, in: 80..300, step: 1, value: @height_in_cm %>
-    </div>
-    <div>
-      <%= f.label :age_in_years, "Age (years)", class: "block" %>
-      <%= f.number_field :age_in_years, in: 10..150, step: 1, value: @age_in_years %>
-    </div>
-    <div>
-      <%= f.label :activity_level, "Activity Level", class: "block" %>
-      <%= f.select :activity_level, activity_levels, selected: @activity_level %>
-    </div>
-    <%= f.submit "Submit", class: "border rounded p-3 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200" %>
-    <%= f.button "Reset", class: "border rounded p-3 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200",
-      data: { action: "click->calculator#resetForm" }
-    %>
-  <% end %>
-</div>
-
-<% if has_bmr? %>
-
-  <div class="p-5 space-y-5">
-    <div>
-      <p class="text-xl">Basal Metabolic Rate (BMR): <%=bmr.to_i%> calories</p>
-    </div>
-    <% if has_tdee? %>
+<div data-controller="calculator" data-calculator-reset-url-value="<%= reset_calculator_url %>">
+  <div class="p-5">
+    <%= select_tag :locale, options_for_select(I18n.available_locales, I18n.locale), "data-action": "change->calculator#setLanguage" %>
+  </div>
+  <div class="p-5">
+    <p class="text-2xl"><%= t :application_title %></p>
+  </div>
+  <div class="p-5">
+    <%= form_with url: calculator_url,
+        method: :post,
+        scope: :parameters,
+        class: "space-y-5",
+        data: {
+          "calculator-target": "form"
+        } do |f| %>
       <div>
-        <p class="text-xl">Total Daily Energy Expenditure (TDEE): <%=tdee.to_i%> calories</p>
+        <%= f.label :gender, t(:gender_input_label), class: "block" %>
+        <%= f.radio_button :gender, :male, checked: (@gender == :male) %>
+        <%= f.label :gender_male, t(:gender_option_male) %>
+        <%= f.radio_button :gender, :female, checked: (@gender == :female) %>
+        <%= f.label :gender_female, t(:gender_option_female) %>
       </div>
+      <div>
+        <%= f.label :weight_in_kilos, t(:weight_input_label), class: "block" %>
+        <%= f.number_field :weight_in_kilos, in: 1.0..700.0, step: 0.5, value: @weight_in_kilos %>
+      </div>
+      <div>
+        <%= f.label :height_in_cm, t(:height_input_label), class: "block" %>
+        <%= f.number_field :height_in_cm, in: 80..300, step: 1, value: @height_in_cm %>
+      </div>
+      <div>
+        <%= f.label :age_in_years, t(:age_input_label), class: "block" %>
+        <%= f.number_field :age_in_years, in: 10..150, step: 1, value: @age_in_years %>
+      </div>
+      <div>
+        <%= f.label :activity_level, t(:activity_level_input_label), class: "block" %>
+        <%= f.select :activity_level, activity_levels, selected: @activity_level %>
+      </div>
+      <%= f.submit t(:submit_form_button_label), class: "border rounded p-3 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200" %>
+      <%= f.button t(:reset_form_button_label), class: "border rounded p-3 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200",
+        data: { action: "click->calculator#resetForm" }
+      %>
     <% end %>
   </div>
 
-<% end %>
+  <% if has_bmr? %>
+
+    <div class="p-5 space-y-5">
+      <div>
+        <p class="text-xl"><%="#{t(:bmr_result_label)}: #{bmr.to_i} #{t(:calories)}"%></p>
+      </div>
+      <% if has_tdee? %>
+        <div>
+          <p class="text-xl"><%="#{t(:tdee_result_label)}: #{tdee.to_i} #{t(:calories)}"%></p>
+        </div>
+      <% end %>
+    </div>
+
+  <% end %>
+</div>

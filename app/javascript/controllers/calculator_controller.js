@@ -18,4 +18,11 @@ export default class extends Controller {
   setActionToReset() {
     this.formTarget.action = this.resetUrlValue;
   }
+
+  setLanguage(e) {
+    const language = e.target.value;
+    const url = new URL(window.location.href);
+    url.searchParams.set('locale', language);
+    window.location.href = url
+  }
 }
