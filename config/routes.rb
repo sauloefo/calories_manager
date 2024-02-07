@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post "/" => "calculator#calculate", as: :calculator
 
+  post "/reset" => "calculator#reset", as: :reset_calculator
+
   # Defines the root path route ("/")
   root "calculator#index"
 end

@@ -17,6 +17,16 @@ class CalculatorController < ApplicationController
     redirect_to action: :index
   end
 
+  def reset
+    reset_gender
+    reset_weight_in_kilos
+    reset_height_in_cm
+    reset_age_in_years
+    reset_activity_level
+
+    redirect_to action: :index
+  end
+
   private
 
     def form_params
@@ -35,6 +45,10 @@ class CalculatorController < ApplicationController
         return
       end
 
+      reset_gender
+    end
+
+    def reset_gender
       cookies.delete :gender
     end
 
@@ -50,6 +64,10 @@ class CalculatorController < ApplicationController
         return
       end
 
+      reset_weight_in_kilos
+    end
+
+    def reset_weight_in_kilos
       cookies.delete :weight_in_kilos
     end
 
@@ -65,6 +83,10 @@ class CalculatorController < ApplicationController
         return
       end
 
+      reset_height_in_cm
+    end
+
+    def reset_height_in_cm
       cookies.delete :height_in_cm
     end
 
@@ -80,6 +102,10 @@ class CalculatorController < ApplicationController
         return
       end
 
+      reset_age_in_years
+    end
+
+    def reset_age_in_years
       cookies.delete :age_in_years
     end
 
@@ -98,6 +124,10 @@ class CalculatorController < ApplicationController
         return
       end
 
+      reset_activity_level
+    end
+
+    def reset_activity_level
       cookies.delete :activity_level
     end
 
