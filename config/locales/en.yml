@@ -47,3 +47,5 @@ en:
   bmr_result_label: "Basal Metabolic Rate (BMR)"
   tdee_result_label: "Total Daily Energy Expenditure (TDEE)"
   calories: "calories"
+  placeholder_instruction_1: "This calculator helps you manage the calories you ingest daily to achieve your diet objective (bulk or cut)."
+  placeholder_instruction_2: "Start by entering your personal information on the left and then follow the instructions."

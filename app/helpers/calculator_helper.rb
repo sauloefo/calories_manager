@@ -47,7 +47,7 @@ module CalculatorHelper
     activity_level_coeficients[:very_active] * female_bmr(weight_in_kilos: weight_in_kilos, height_in_centimeters: height_in_centimeters, age_in_years: age_in_years)
   end
 
-  def activity_levels
+  def activity_level_options
     %i[sedentary slightly_active moderately_active active very_active].to_set
 
     [

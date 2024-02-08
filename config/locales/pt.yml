@@ -18,3 +18,5 @@ pt:
   bmr_result_label: "Taxa Metabólica Basal (TMB)"
   tdee_result_label: "Gasto Calórico Diário (GCD)"
   calories: "calorias"
+  placeholder_instruction_1: "Essa calculadora ajuda você a gerenciar as calorias que ingere diariamente para alcançar o objetivo da sua dieta (ganho ou perda de peso)."
+  placeholder_instruction_2: "Comece inserindo suas informações pessoais à esquerda e siga as instruções."
