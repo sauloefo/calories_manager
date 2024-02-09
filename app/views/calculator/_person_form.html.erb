@@ -1,8 +1,11 @@
+<%
+  form_classes = "" if form_classes.nil?
+%>
 <div data-controller="person-form" data-person-form-reset-url-value="<%= reset_calculator_url %>">
   <%= form_with url: calculator_url,
       method: :post,
       scope: :parameters,
-      class: "border rounded-lg px-5 space-y-5 pb-5",
+      class: form_classes,
       data: {
         "person-form-target": "form"
       } do |f| %>
@@ -29,9 +32,11 @@
       <%= f.label :activity_level, t(:activity_level_input_label), class: "block" %>
       <%= f.select :activity_level, activity_level_options, selected: activity_level %>
     </div>
-    <%= f.submit t(:submit_form_button_label), class: "border rounded p-3 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200" %>
-    <%= f.button t(:reset_form_button_label), class: "border rounded p-3 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200",
-      data: { action: "click->person-form#resetForm" }
-    %>
+    <div class="flex space-x-5">
+      <%= f.button t(:reset_form_button_label), class: "btn-neutral ml-auto",
+        data: { action: "click->person-form#resetForm" }
+      %>
+      <%= f.submit t(:submit_form_button_label), class: "btn-neutral" %>
+    </div>
   <% end %>
 </div>

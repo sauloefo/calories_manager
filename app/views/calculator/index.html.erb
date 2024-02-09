@@ -1,6 +1,7 @@
-<div>
-  <div class="flex mt-5 space-x-5">
+<div class="flex flex-wrap lg:flex-nowrap my-5 space-y-5 lg:space-y-0 lg:space-x-5">
+  <div class="border rounded-lg px-5 pb-5 w-full lg:w-auto">
     <%= render partial: "person_form", locals: {
+      form_classes: "space-y-5",
       gender: @gender,
       weight_in_kilos: @weight_in_kilos,
       height_in_cm: @height_in_cm,
@@ -8,15 +9,17 @@
       activity_level_options: activity_level_options,
       activity_level: @activity_level
     } %>
+  </div>
+  <div class="border rounded-lg grow p-5">
     <% if has_tdee? %>
-      <div class="border rounded-lg p-5 space-y-5 grow">
+      <div class="space-y-5">
         <p><%="#{t(:bmr_result_label)}: #{number_with_delimiter bmr.to_i} #{t(:calories)}"%></p>
         <p class="text-xl"><%="#{t(:tdee_result_label)}: #{number_with_delimiter tdee.to_i} #{t(:calories)}"%></p>
       </div>
     <% else %>
-      <div class="grid content-center border rounded-lg py-5 px-20 grow text-2xl text-center">
-          <p><%= t :placeholder_instruction_1 %></p>
-          <p><%= t :placeholder_instruction_2 %></p>
+      <div class="h-full flex flex-col text-center justify-center text-2xl">
+        <p><%= t :placeholder_instruction_1 %></p>
+        <p><%= t :placeholder_instruction_2 %></p>
       </div>
     <% end %>
   </div>
