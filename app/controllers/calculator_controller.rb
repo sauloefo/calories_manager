@@ -1,4 +1,7 @@
 class CalculatorController < ApplicationController
+  attr_accessor :gender, :weight_in_kilos, :height_in_cm, :age_in_years, :activity_level
+  helper_attr :gender, :weight_in_kilos, :height_in_cm, :age_in_years, :activity_level
+
   def index
     set_gender
     set_weight_in_kilos
