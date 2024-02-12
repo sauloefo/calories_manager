@@ -5,9 +5,9 @@ module EnhancedHelpers extend ActiveSupport::Concern
     # Redefines `helper_attr` method to call `attr_accessor` for each argument that
     # is not already a method of the class
     def helper_attr(*args)
-      args \
-        .select{|arg| !self.respond_to? arg} \
-        .each { |arg| attr_accessor arg }
+      args
+        .reject { respond_to? _1 }
+        .each { attr_accessor _1 }
       super *args
     end
   end
