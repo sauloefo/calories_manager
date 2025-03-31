@@ -1,4 +1,0 @@
-<div class="flex flex-col-reverse lg:flex lg:flex-row rounded-lg items-center p-5 bg-gray-700" data-controller="navbar">
-  <div class="text-2xl text-gray-200 lg:mr-auto"><%= t :application_title %></div>
-  <%= select_tag :locale, options_for_select(available_locales, I18n.locale), "data-action": "change->navbar#setLanguage" %>
-</div>

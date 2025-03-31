@@ -1,0 +1,16 @@
+{
+  "name": "calories_manager",
+  "dockerFile": "Dockerfile",
+  "initializeCommand": "docker pull sauloefo/devcontainer:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/ruby:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "shopify.ruby-lsp"
+      ]
+    }
+  }
+}
