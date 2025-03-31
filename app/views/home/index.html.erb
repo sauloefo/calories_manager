@@ -1,0 +1,68 @@
+<p class="text-4xl">
+  Calories Manager
+</p>
+<div class="flex mt-6">
+  <div class="card border">
+    <div class="card-body">
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Gender</legend>
+        <span>
+          <input type="radio" id="gender-male" name="gender" class="radio" checked="checked" />
+          <label for="gender-male" class="">Male</label>
+        </span>
+        <span>
+          <input type="radio" id="gender-female" name="gender" class="radio" />
+          <label for="gender-female" class="">Female</label>
+        </span>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Weight (kg)</legend>
+        <input type="number" step="0.5" min="30" max="700" class="input" />
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Height (cm)</legend>
+        <input type="number" step="1" min="80" max="300" class="input" />
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Age (year)</legend>
+        <input type="number" step="1" min="10" max="150" class="input" />
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Physical Activity Level</legend>
+        <select class="select">
+          <option selected>Sedentary</option>
+          <option>Slightly Active</option>
+          <option>Moderately Active</option>
+          <option>Active</option>
+          <option>Very Active</option>
+        </select>
+      </fieldset>
+
+      <div class="flex space-x-2 mt-6">
+        <button class="btn btn-soft grow">reset</button>
+        <button class="btn btn-soft btn-primary grow">submit</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card border ml-6">
+    <div class="card-body">
+      <h2 class="text-lg font-bold">Result</h2>
+      <div class="flex flex-col space-y-2 mt-4">
+        <div class="flex justify-between">
+          <span>Basal Metabolic Rate (BMR)</span>
+          <span>2000 kcal</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Total Daily Energy Expenditure (TDEE)</span>
+          <span>2500 kcal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

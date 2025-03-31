@@ -9,7 +9,8 @@
     "vscode": {
       "extensions": [
         "ms-azuretools.vscode-docker",
-        "shopify.ruby-lsp"
+        "shopify.ruby-lsp",
+        "bradlc.vscode-tailwindcss"
       ]
     }
   }
